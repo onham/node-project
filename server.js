@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 const app = express(); //making a new express app --
 
 
@@ -10,8 +11,6 @@ hbs.registerPartials(`${__dirname}/views/partials`);
 
 //establishing a key-value pair -- anything hbs here will know to look in views folder:
 app.set('view engine', 'hbs'); 
-
-
 
 
 
@@ -92,8 +91,8 @@ app.get('/handlebars', (req, res) => {  //rendering through a template via handl
 });
 
 
-app.listen(3000, () => {
-	console.log('server is up on port 3000')
+app.listen(port, () => {
+	console.log(`server is up on port ${port}`)
 }); //bind the application to a port on our machine -- port 3000
 
 
